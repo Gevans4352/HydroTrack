@@ -1,0 +1,272 @@
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #8CDE94;
+    --background-color: #F4F4F9;
+    --text-color: #333;
+    --card-background: #FFFFFF;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    line-height: 1.6;
+    font-family: "Edu NSW ACT Cursive", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    position: relative;
+    overflow: hidden;
+  animation: gradientPulse 15s ease infinite alternate;
+  background: linear-gradient(-45deg, 
+    var(--background-color), 
+    #f0f5ff, 
+    #f4fff0);
+  background-size: 300% 300%;
+  position: relative;
+  overflow: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(74, 144, 226, 0.1) 20%);
+  background-size: 20px 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+body.ripple-effect::before {
+  animation: ripple 1.5s linear;
+  opacity: 0.3;
+}
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="%234A90E2" opacity="0.1"/><circle cx="30" cy="70" r="3" fill="%238CDE94" opacity="0.1"/><circle cx="80" cy="20" r="1.5" fill="%234A90E2" opacity="0.1"/></svg>');
+  animation: floatBubbles 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particlePop 1s ease-out forwards;
+  z-index: -1;
+}
+@keyframes gradientPulse {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes ripple {
+  0% { background-size: 20px 20px; opacity: 0.3; }
+  100% { background-size: 100px 100px; opacity: 0; }
+}
+
+@keyframes floatBubbles {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-100vh); }
+}
+
+@keyframes particlePop {
+  0% { transform: translate(0, 0); opacity: 1; }
+  100% { transform: translate(var(--x, 0), var(--y, -50px)); opacity: 0; }
+
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: -50vh;
+    left: -50vw;
+    width: 200vw;
+    height: 200vh;
+    background: radial-gradient(circle at center, #113d18, #1d476b, transparent, transparent);
+    opacity: 0.7;
+    animation: background-pulse 10s infinite alternate;
+    z-index: -1;
+    pointer-events: none; 
+    transition: transform 0.3s ease-out;
+}
+
+@keyframes background-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.app-container {
+    background: var(--card-background);
+    padding: 2.5em;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.message {
+    font-size: 1em;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1.5em;
+}
+
+.section {
+    margin-bottom: 2em;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357BD9;
+}
+
+#undo-btn {
+    background-color: #f44336;
+    margin-top: 1em;
+}
+
+#undo-btn:hover {
+    background-color: #d32f2f;
+}
+
+.drink-type-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.drink-type-btn {
+    background-color: #555;
+    color: white;
+    padding: 15px 30px;
+}
+
+.drink-type-btn:hover {
+    background-color: #333;
+}
+
+.drink-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.drink-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drink-btn:hover {
+    background-color: #6BBd73;
+}
+
+.custom-intake {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1em;
+}
+
+.custom-intake input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 150px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 25px;
+    margin-bottom: 0.5em;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text-display {
+    font-size: 1em;
+    font-weight: bold;
+    color: #666;
+}
+
+.animation {
+    font-size: 5em;
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}

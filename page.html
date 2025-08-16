@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuenchQuest</title>
+    <link rel="stylesheet" href="./page.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Track Your Drinks</h1>
+            <p id="status-message" class="message"></p>
+        </header>
+        <main>
+            <div id="clock-in-section" class="section">
+                <button id="clock-in-btn">Log Your First Sip</button>
+            </div>
+            <div id="drink-type-section" class="section hidden">
+                <div class="drink-type-options">
+                    <button id="select-water-btn" class="drink-type-btn">Water</button>
+                    <button id="select-other-btn" class="drink-type-btn">Other Drinks</button>
+                </div>
+            </div>
+            
+            <div id="intake-section" class="section hidden">
+                <p id="intake-title" class="section-title"></p>
+                <div class="drink-options">
+                    <button class="drink-btn" data-amount="250">250ml</button>
+                    <button class="drink-btn" data-amount="500">500ml</button>
+                    <button class="drink-btn" data-amount="750">750ml</button>
+                    <button class="drink-btn" data-amount="1000">1L</button>
+                    
+                </div>
+                <div class="custom-intake">
+                    <input type="number" id="custom-amount" placeholder="Enter custom amount (ml)">
+                    <button id="add-custom-btn">Add</button>
+                </div>
+                <button id="undo-btn" class="hidden" title="Undo last action (Ctrl+Z)">Undo</button>
+            </div>
+            <div id="progress-section" class="section hidden">
+                <p class="section-title">Your Progress Today:</p>
+                <div class="progress-bar-container">
+                    <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                </div>
+                <div class="progress-text-display">
+                    <span id="progress-display">0</span> ml / 2000 ml
+                </div>
+            </div>
+        </main> 
+        <footer>
+            <div id="animation-display"></div>
+        </footer>
+    </div>
+    <script src="./page.js"></script>
+</body>
+</html>
